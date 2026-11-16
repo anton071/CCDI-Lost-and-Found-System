@@ -252,4 +252,6 @@ This system was developed as a mini capstone / thesis project at the Computer Co
 
 ## License
 
-No license has been chosen yet. Add a `LICENSE` file before publishing if you want others to be able to reuse the code.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
