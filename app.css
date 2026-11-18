@@ -1,0 +1,240 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views';
+
+@theme {
+    --font-sans: ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+    --color-navy-50: #eef3fb;
+    --color-navy-100: #dae5f6;
+    --color-navy-200: #b9cdec;
+    --color-navy-300: #8cacdc;
+    --color-navy-400: #5b84c7;
+    --color-navy-500: #3a64ad;
+    --color-navy-600: #2c4f90;
+    --color-navy-700: #254075;
+    --color-navy-800: #1f3560;
+    --color-navy-900: #172849;
+    --color-navy-950: #0f1b33;
+
+    --color-teal-50: #effbf9;
+    --color-teal-100: #d3f5ef;
+    --color-teal-200: #a8e9df;
+    --color-teal-300: #72d6c9;
+    --color-teal-400: #3dbbad;
+    --color-teal-500: #22a093;
+    --color-teal-600: #1a8178;
+    --color-teal-700: #19675f;
+    --color-teal-800: #19534e;
+    --color-teal-900: #194542;
+
+    --color-paper: #f5f7fa;
+}
+
+@layer base {
+    html { scroll-behavior: smooth; }
+    body { @apply bg-paper text-slate-800 antialiased; }
+    :focus-visible { outline: 2px solid var(--color-teal-600); outline-offset: 2px; }
+    [x-cloak] { display: none !important; }
+}
+
+@layer components {
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60; }
+    .btn-sm { @apply px-3 py-1.5 text-xs; }
+    .btn-primary { @apply bg-navy-800 text-white hover:bg-navy-900; }
+    .btn-accent { @apply bg-teal-600 text-white hover:bg-teal-700; }
+    .btn-secondary { @apply border border-slate-300 bg-white text-navy-900 hover:bg-slate-50; }
+    .btn-danger { @apply bg-red-600 text-white hover:bg-red-700; }
+    .btn-ghost { @apply text-navy-800 hover:bg-navy-50; }
+
+    .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm; }
+    .card-pad { @apply p-5 sm:p-6; }
+
+    .label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
+    .input { @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-600/25 focus:outline-none; }
+    .input-error { @apply border-red-500 focus:border-red-500 focus:ring-red-500/25; }
+    .hint { @apply mt-1 text-xs text-slate-500; }
+    .field-error { @apply mt-1 text-sm text-red-600; }
+
+    .badge { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset; }
+    .badge-amber { @apply bg-amber-50 text-amber-800 ring-amber-600/25; }
+    .badge-green { @apply bg-emerald-50 text-emerald-800 ring-emerald-600/25; }
+    .badge-red { @apply bg-red-50 text-red-800 ring-red-600/25; }
+    .badge-blue { @apply bg-navy-50 text-navy-800 ring-navy-600/25; }
+    .badge-teal { @apply bg-teal-50 text-teal-800 ring-teal-600/25; }
+    .badge-slate { @apply bg-slate-100 text-slate-700 ring-slate-500/25; }
+    .badge-indigo { @apply bg-indigo-50 text-indigo-800 ring-indigo-600/25; }
+    .badge-rose { @apply bg-rose-50 text-rose-800 ring-rose-600/25; }
+
+    .data-table { @apply w-full text-left text-sm; }
+    .data-table thead th { @apply border-b border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold tracking-wide text-slate-600 uppercase; }
+    .data-table tbody td { @apply border-b border-slate-100 px-4 py-3 align-middle; }
+    .data-table tbody tr:last-child td { @apply border-b-0; }
+
+    .page-title { @apply text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl; }
+    .section-title { @apply text-lg font-semibold text-navy-900; }
+    .nav-link { @apply rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-navy-50 hover:text-navy-900; }
+    .nav-link-active { @apply bg-navy-50 text-navy-900; }
+}
+
+/* CCDI institutional interface refinements */
+:root { --ccdi-navy:#172b50; --ccdi-navy-deep:#10203f; --ccdi-blue:#244781; --ccdi-red:#d92735; --ccdi-paper:#f4f6fa; --ccdi-line:#dfe5ee; }
+@layer base {
+ body { background:var(--ccdi-paper); color:#243149; }
+ ::selection { background:#dce6f7; color:var(--ccdi-navy-deep); }
+ :focus-visible { outline:3px solid #8ba9db; outline-offset:2px; }
+}
+@layer components {
+ .btn { min-height:42px; border-radius:7px; padding:.66rem 1rem; font-weight:650; letter-spacing:.005em; box-shadow:0 1px 1px rgb(16 32 63 / 7%); transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease,box-shadow .16s ease; }
+ .btn:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 3px 9px rgb(16 32 63 / 11%); }
+ .btn:active:not(:disabled) { transform:translateY(0); box-shadow:none; }
+ .btn-sm { min-height:35px; border-radius:6px; padding:.48rem .78rem; }
+ .btn-primary { background:var(--ccdi-navy); color:#fff; }
+ .btn-primary:hover:not(:disabled) { background:#203d70; }
+ .btn-accent { background:#b92532; color:#fff; }
+ .btn-accent:hover:not(:disabled) { background:#9f1f2b; }
+ .btn-secondary { border:1px solid #c7d1df; background:#fff; color:var(--ccdi-navy); box-shadow:none; }
+ .btn-secondary:hover:not(:disabled) { border-color:#8298b8; background:#f6f8fc; }
+ .btn-danger { background:#b92c3a; color:#fff; }
+ .btn-ghost { color:var(--ccdi-navy); box-shadow:none; }
+ .btn-ghost:hover:not(:disabled) { background:#eaf0f9; box-shadow:none; }
+ .card { border:1px solid var(--ccdi-line); border-radius:10px; background:#fff; box-shadow:0 1px 2px rgb(16 32 63 / 5%),0 5px 16px rgb(16 32 63 / 3%); }
+ .card-pad { padding:1.15rem; }
+ .input { min-height:43px; border-color:#cbd5e1; border-radius:7px; color:#17243a; box-shadow:inset 0 1px 1px rgb(16 32 63 / 3%); }
+ .input:focus { border-color:#496b9f; --tw-ring-color:rgb(73 107 159 / 18%); }
+ .label { color:#34435b; font-weight:600; }
+ .page-title { color:var(--ccdi-navy-deep); font-size:clamp(1.45rem,2vw,1.9rem); letter-spacing:-.035em; }
+ .section-title { color:var(--ccdi-navy); letter-spacing:-.015em; }
+ .nav-link { border-radius:6px; transition:background-color .15s ease,color .15s ease; }
+ .nav-link-active { background:#eaf0f9; color:var(--ccdi-navy); font-weight:650; }
+ .data-table thead th { background:#f5f7fb; color:#53627a; }
+}
+header.sticky { border-color:#e4e9f0; }
+#mobile-nav { box-shadow:0 12px 18px rgb(16 32 63 / 8%); }
+#admin-nav { background:linear-gradient(180deg,#172b50 0%,#11213f 100%); }
+#admin-nav nav a { border-radius:7px; min-height:42px; }
+#admin-nav nav a[aria-current="page"] { background:#294b83; color:#fff; box-shadow:inset 3px 0 #d92735; }
+#admin-nav nav a:not([aria-current="page"]):hover { background:rgb(255 255 255 / 8%); }
+.bg-navy-900 { background-color:var(--ccdi-navy-deep); }
+.text-teal-200 { color:#f0c5c9; }
+.bg-teal-600 { background-color:#b92532; }
+.data-table { min-width:640px; }
+.overflow-x-auto { -webkit-overflow-scrolling:touch; }
+@media (max-width:1023px) {
+ #admin-nav:not(.hidden) { position:fixed; z-index:60; inset:0 auto 0 0; display:flex; width:min(82vw,290px); height:100dvh; overflow-y:auto; box-shadow:12px 0 32px rgb(10 25 50 / 22%); }
+}
+@media (max-width:639px) {
+ .page-title { line-height:1.2; }
+ .btn { min-height:44px; }
+ .btn-sm { min-height:40px; }
+ .card-pad { padding:1rem; }
+ .data-table { font-size:.8125rem; }
+ .data-table thead th,.data-table tbody td { padding:.7rem .75rem; }
+ input,select,textarea { max-width:100%; }
+}
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; } }
+
+/* Brand accent for interactive text; semantic green statuses remain green. */
+.text-teal-700 { color: #b92532; }
+.hover\:text-teal-700:hover { color: #9f1f2b; }
+.text-teal-600 { color: #b92532; }
+/* =========================================
+   CCDI FULL-WIDTH APPLICATION LAYOUT
+========================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#main {
+    width: 100%;
+    min-width: 0;
+}
+
+#main > * {
+    min-width: 0;
+}
+
+/* Main application content */
+.page-container,
+.dashboard-container {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Responsive page spacing */
+@media (min-width: 1024px) {
+    .page-container,
+    .dashboard-container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .page-container,
+    .dashboard-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 639px) {
+    .page-container,
+    .dashboard-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+/* =========================================
+   CCDI HOMEPAGE AND TYPOGRAPHY REFINEMENTS
+   ========================================= */
+
+@layer base {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+@layer components {
+    .label {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .input {
+        min-height: 46px;
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+        font-weight: 700;
+    }
+}
+
+/* Keep the larger header branding balanced on smaller screens. */
+@media (max-width: 639px) {
+    header.sticky > div:first-child {
+        min-height: 68px;
+    }
+
+    header.sticky > div:first-child > a img {
+        width: 48px;
+        height: 48px;
+    }
+}

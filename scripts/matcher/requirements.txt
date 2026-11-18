@@ -1,0 +1,3 @@
+# SIFT needs OpenCV >= 4.4. Use ONE of these (headless is enough; there is no GUI use).
+opencv-python-headless>=4.8
+numpy>=1.24
